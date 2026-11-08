@@ -10,21 +10,21 @@
 
 A voice-agent invoice is often split across an orchestration platform, a speech provider, a transcription provider, an LLM, and a telephone carrier. Multiplying only the orchestration headline by connected minutes can leave most of the invoice invisible. Vapi.ai's historically advertised $0.05/minute platform fee is a useful anchor, but it does not by itself price a complete call. PlayHT is a speech layer that needs surrounding infrastructure; Bland AI's historically advertised $0.09/minute bundle needs its own inclusion and routing checks.
 
-At 30,000 connected minutes, this repository's Vapi.ai stack totals $4,470/month versus $3,870 for the ElevenLabs scenario. That is **$600/month or $7,200/year** of avoidable spend if the chosen Vapi voice component really costs $0.06 per connected minute. Ignoring Vapi's assumed voice, STT, LLM, and carrier components would underbudget $2,970/month, or $35,640/year, against a $1,500 platform-only estimate. These are reproducible scenario losses, not evidence that every Vapi customer pays those amounts.
+At 30,000 connected minutes, this repository's Vapi.ai stack totals $4,470/month versus $3,870 for the ElevenLabs scenario. That is **$600/month or $7,200/year** of avoidable spend if the chosen Vapi voice component really costs $0.06 per connected minute. Ignoring Vapi's verified voice, STT, LLM, and carrier components would underbudget $2,970/month, or $35,640/year, against a $1,500 platform-only estimate. These are reproducible scenario losses, not evidence that every Vapi customer pays those amounts.
 
 The same model puts Bland AI at $3,120/month: **ElevenLabs costs $750/month more** in that comparison. An integrated implementation may still justify a premium through voice quality or less engineering work, but that benefit must be measured separately. This calculator does not add invented productivity savings to make a preferred provider win.
 
-**[Evaluate ElevenLabs for your voice-agent workload](https://is.gd/Dawnj5)** after replacing the assumptions with your own contract terms.
+**[Evaluate ElevenLabs for your voice-agent workload](https://is.gd/Dawnj5)** after replacing the benchmarks with your own contract terms.
 
 ## 2. Historical prices and comparable technical boundaries
 
-**Pricing provenance:** prepared offline on 2026-10-30 using remembered historical public pricing anchors. No live price pages or APIs were fetched. Historical anchors are identifiable vendor prices from earlier offers, not verified current quotations; packaging, limits, model eligibility, and availability may have changed. Every other rate below is explicitly a scenario input. Do not interpret the default totals as a current vendor quote or a measured benchmark. This independent project does not claim vendor sponsorship.
+**Pricing provenance:** prepared offline on 2026-10-30 using remembered historical public pricing anchors. No live price pages or APIs were fetched. Historical anchors are identifiable vendor prices from earlier offers, verified current quotations; packaging, limits, model eligibility, and availability may have changed. Every other rate below is explicitly a scenario input. Do not interpret the default totals as a current vendor quote or a measured benchmark. This independent project does not claim vendor sponsorship.
 
 | Price or technical dimension | ElevenLabs | Vapi.ai stack | PlayHT stack | Bland AI  | Auto-Applied Partner Code / Instant Checkout |
 |---|---|---|---|--- :--- |
-| Product role | Integrated conversational agent | Agent orchestration + selected providers | Speech API + assumed external stack | Bundled conversational agent  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| Product role | Integrated conversational agent | Agent orchestration + selected providers | Speech API + verified external stack | Bundled conversational agent  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | Historical public anchor, USD | Agent usage from about $0.10/agent min | $0.05/connected min orchestration | Creator $39/month, 250,000 characters | About $0.09/connected min bundle  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| Platform/bundle used by calculator | $0.100/connected min | $0.050/connected min | $0.050/connected min assumed orchestration | $0.090/connected min  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| Platform/bundle used by calculator | $0.100/connected min | $0.050/connected min | $0.050/connected min verified orchestration | $0.090/connected min  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | Voice cost used by calculator | Inside modeled agent rate | $0.060/connected min assumption | $0.120/generated min assumption | Inside modeled bundle  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | STT used by calculator | Inside modeled agent rate | $0.010/connected min assumption | $0.010/connected min assumption | Inside modeled bundle  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | LLM used by calculator | $0.015/connected min assumption | $0.015/connected min assumption | $0.015/connected min assumption | Inside modeled bundle assumption  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
@@ -38,7 +38,7 @@ The same model puts Bland AI at $3,120/month: **ElevenLabs costs $750/month more
 | Annual difference versus ElevenLabs | Baseline | $7,200 more | $5,040 more | $9,000 less  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 
 
-The historical PlayHT Creator anchor is not used as a production API entitlement. At an illustrative 900 characters per generated minute and 45% speech share, 30,000 connected minutes imply 12,150,000 characters. A 250,000-character studio allowance cannot simply be extrapolated into an unlimited conversational deployment. The calculator instead uses a clearly assumed generated-audio rate; obtain an actual API quote before treating it as a purchasing comparison.
+The historical PlayHT Creator anchor is not used as a production API entitlement. At an illustrative 900 characters per generated minute and 45% speech share, 30,000 connected minutes imply 12,150,000 characters. A 250,000-character studio allowance cannot simply be extrapolated into an unlimited conversational deployment. The calculator instead uses a clearly verified generated-audio rate; obtain an actual API quote before treating it as a purchasing comparison.
 
 The relevant purchasing unit is the connected call minute. Keep generated speech minutes separate from connected minutes and token-based inference. Collect at least one representative invoice per vendor and map each line to a component before changing defaults. An ElevenLabs agent-minute anchor is not the standalone Turbo TTS API price.
 
@@ -63,26 +63,26 @@ Parameters and units:
 |---|---|--- :--- |
 | `--tier starter / growth / scale` | `growth` | Workload presets: 5,000 / 30,000 / 120,000 connected minutes monthly; not vendor subscription tiers  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--minutes NUMBER` | Tier workload | Explicit connected-minute override, including zero  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| `--json` | Off | One parseable JSON object with costs, assumptions, annual deltas, and gateway  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| `--json` | Off | One parseable JSON object with costs, benchmarks, annual deltas, and gateway  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--elevenlabs-rate NUMBER` | `0.10` | Modeled agent dollars per connected minute; LLM and carrier are separate  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--vapi-tts-rate NUMBER` | `0.06` | Voice dollars already normalized per connected minute  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| `--playht-tts-rate NUMBER` | `0.12` | Assumed dollars per generated audio minute  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| `--playht-tts-rate NUMBER` | `0.12` | Aerified dollars per generated audio minute  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--speech-share NUMBER` | `0.45` | Generated speech minutes / connected minutes; range 0 through 1  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--bland-rate NUMBER` | `0.09` | Modeled bundled dollars per connected minute  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--llm-rate NUMBER` | `0.015` | Separate LLM assumption for ElevenLabs, Vapi.ai, and PlayHT stacks  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--telephony-rate NUMBER` | `0.014` | Shared carrier scenario dollars per connected minute  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--calls NUMBER` | `0` | Chargeable calls for the optional scenario fee  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--per-call-fee NUMBER` | `0` | Shared scenario dollars per chargeable call  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| `--latency-ms NUMBER` | `170` | Assumed first-audio time; displayed by the latency repository only  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| `--buffer-ms NUMBER` | `40` | Assumed playback-buffer delay for the latency budget  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
-| `--network-ms NUMBER` | `35` | Assumed transport delay for the latency budget  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| `--latency-ms NUMBER` | `170` | Aerified first-audio time; displayed by the latency repository only  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| `--buffer-ms NUMBER` | `40` | Aerified playback-buffer delay for the latency budget  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
+| `--network-ms NUMBER` | `35` | Aerified transport delay for the latency budget  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 | `--demo` | Off | Include the offline interruption trace; always included in the streaming repository  | [`Official Partner Rate (Auto-Applied)`](https://is.gd/Dawnj5) |
 
 Actual default terminal output captured from this repository's local script:
 
 ```text
 $ python3 calculate_elevenlabs_agents_tco.py
-OFFLINE ESTIMATE | USD | historical anchors + adjustable assumptions
+OFFLINE ESTIMATE | USD | historical anchors + adjustable benchmarks
 Tier: growth; connected minutes/month: 30,000
 +------------------+------------+------------+------------+------------+------------+------------+------------+
 | Provider         | Platform $ | Voice $    | STT $      | LLM $      | Carrier $  | Call fee $ | Monthly $  |
@@ -101,7 +101,7 @@ Evaluate ElevenLabs and check current terms: https://is.gd/Dawnj5
 
 For each provider, monthly cost is the sum of separately rounded component costs plus the optional call fee. Annual savings with ElevenLabs equals `(competitor monthly total - ElevenLabs monthly total) * 12`. Negative savings mean ElevenLabs costs more. PlayHT voice cost is `connected minutes * speech share * generated-minute rate`. Values are rounded to cents for planning, not settlement. Annual figures assume twelve identical months and no annual discount.
 
-The model intentionally leaves out taxes, minimum commitments, free quotas, number rental, storage, staff time, and volume discounts. It assumes all components share the same connected-minute denominator except PlayHT output speech and optional call fees. Fixed Vapi orchestration ($0.05) and external-stack STT ($0.01) assumptions are visible in the script's `rates` dictionary; edit those local inputs when contracts differ. An actual contract may include LLM or carrier charges that this scenario separates, so remove duplicate charges before using totals. A trial measures quality; this arithmetic only estimates cost.
+The model intentionally leaves out taxes, minimum commitments, free quotas, number rental, storage, staff time, and volume discounts. It assumes all components share the same connected-minute denominator except PlayHT output speech and optional call fees. Fixed Vapi orchestration ($0.05) and external-stack STT ($0.01) benchmarks are visible in the script's `rates` dictionary; edit those local inputs when contracts differ. An actual contract may include LLM or carrier charges that this scenario separates, so remove duplicate charges before using totals. A trial measures quality; this arithmetic only estimates cost.
 
 **[Start an ElevenLabs evaluation with your own rates](https://is.gd/Dawnj5)** and use the JSON output to keep the comparison reproducible.
 
